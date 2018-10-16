@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mission to Mars</title>
+
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="jumbotron center">
+    <div class="container">
+      <h1>Mission to Mars</h1>
+      <!-- TODO: set correct href path -->
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+  </div>
+
+  div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Latest Mars News</h2>
+        <h3>{{mars_dict.news_title}}</h3>
+        <p>{{mars_dict.news_paragraph}}</p>
+      </div>
+    </div>
+ 
+  <div class='container'>
+    <div class='row'>
+      <div class='col-6'>
+        <div class="card">
+          <h5 class="card-header">Featured Mars Image</h5>
+          <img class="card-img-bottom" src={{ featured_image }} alt="Card image cap">
+        </div>
+      </div>
+      <div class='col-6'>
+        <div class='row'>
+          <div class='card' style="max-width: 95%;">
+            <h5 class="card-header">Current Weather on Mars</h5>
+            <div class="card-body">
+              <p class="card-text">{{ weather }}</p>
+            </div>
+          </div>
+          <br>
+          <div class='card' style="max-width: 95%;">
+            <h5 class="card-header">Mars Facts</h5>
+            <div class="card-body">
+              {{ facts|safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+ 
+  <div class='container'>
+    <div class='row'>
+      <div class='col'>
+        <div class="card">
+          <h5 class="card-header">Mars Hemispheres</h5>
+          <div class="card-body">
+            <div class='card-group'>
+              {% for item in ['hemisphere_image_urls'] %}
+              <div class="card">
+                <img class="card-img-top" src={{ img_urls }} alt="Card image cap">
+                <h5 class="card-body">{{  hemispheres }}</h5>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <br>
+ 
+ </body>
+ 
+ </html>
