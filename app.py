@@ -19,6 +19,7 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
     mars_data = mongo.db.mars.find_one()
+    print(mars_data)
     if bool(mars_data):
         return render_template("index.html", mars_dict=mars_data)
     else:
@@ -29,7 +30,7 @@ def index():
 def scrape():
 
     mars_dict = mongo.db.mars
-    mars_data = scrape_mars1.scrape_all()
+    mars_data = scrape_mars.scrape_all()
     mars_dict.update(
         {},
         mars_data,

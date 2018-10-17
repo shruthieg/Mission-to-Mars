@@ -38,7 +38,7 @@
       <div class='col-6'>
         <div class="card">
           <h5 class="card-header">Featured Mars Image</h5>
-          <img class="card-img-bottom" src={{ featured_image }} alt="Card image cap">
+          <img class="card-img-bottom" src="{{ mars_dict.featured_image }}" alt="Card image cap">
         </div>
       </div>
       <div class='col-6'>
@@ -46,14 +46,14 @@
           <div class='card' style="max-width: 95%;">
             <h5 class="card-header">Current Weather on Mars</h5>
             <div class="card-body">
-              <p class="card-text">{{ weather }}</p>
+              <p class="card-text">{{ mars_dict.weather }}</p>
             </div>
           </div>
           <br>
           <div class='card' style="max-width: 95%;">
             <h5 class="card-header">Mars Facts</h5>
             <div class="card-body">
-              {{ facts|safe }}
+              {{ mars_dict.facts|safe }}
             </div>
           </div>
         </div>
@@ -68,11 +68,12 @@
         <div class="card">
           <h5 class="card-header">Mars Hemispheres</h5>
           <div class="card-body">
+            {{ mars_dict.hemsphere_image_urls }}
             <div class='card-group'>
-              {% for item in ['hemisphere_image_urls'] %}
+              {% for item in mars_dict.hemispheres %}
               <div class="card">
-                <img class="card-img-top" src={{ img_urls }} alt="Card image cap">
-                <h5 class="card-body">{{  hemispheres }}</h5>
+                <img class="card-img-top" src="{{ item[1] }}" alt="Card image cap">
+                <h5 class="card-body">{{ item[0] }}</h5>
               </div>
               {% endfor %}
             </div>

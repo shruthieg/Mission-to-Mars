@@ -10,7 +10,7 @@ from splinter.exceptions import ElementDoesNotExist
 
 
     # Initiate headless driver for deployment
-browser = Browser("chrome", executable_path="chromedriver", headless=True)
+browser = Browser("chrome", executable_path="chromedriver")
 
 
 
